@@ -235,7 +235,7 @@
 
         function speakFinalMessage() {
             if ('speechSynthesis' in window) {
-                const text = "दूरी जति नै टाढा भए पनि, हाम्रो मुटुको ढुकढुकी सँगै छ। स्मृति, तिमी मेरो जीवनको सबैभन्दा सुन्दर सपना र सधैँभरिको खुसी हौ। I love you so much!";
+                const text = "दूरी जति नै टाढा भए पनि, हाम्रो मुटुको ढुकढुकी सँगै छ। तिमी मेरो जीवनको सबैभन्दा सुन्दर सपना र सधैँभरिको खुसी हौ। I love you so much!";
                 const utterance = new SpeechSynthesisUtterance(text);
                 utterance.lang = 'hi-IN'; // नेपाली भ्वाइस सपोर्ट नभएमा हिन्दी वा अंग्रेजीमा प्रस्ट सुनिन सक्छ
                 utterance.rate = 0.9; // बोल्ने गति अलि ढिलो र रोमान्टिक बनाउन
