@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Smriti ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+        }
+
+        .bg-watermark {
+            position: absolute;
+            top: 20px;
+            font-size: 3vw;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.2);
+            z-index: 0;
+            user-select: none;
+            pointer-events: none;
+            white-space: nowrap;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 85%;
+            max-width: 380px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            color: #d63384;
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: relative;
+            margin-top: 15px;
+            min-height: 45px;
+        }
+
+        button {
+            padding: 8px 18px;
+            font-size: 14px;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: none;
+        }
+
+        .primary-btn {
+            background-color: #ff4757;
+            color: white;
+            box-shadow: 0 3px 10px rgba(255, 71, 87, 0.3);
+        }
+
+        .escape-btn {
+            background-color: #747d8c;
+            color: white;
+            position: absolute;
+            right: 10px;
+            box-shadow: 0 3px 10px rgba(116, 125, 140, 0.3);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .heart {
+            font-size: 35px;
+            margin-bottom: 5px;
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-5px); }
+        }
+
+        p {
+            color: #555;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .datetime-box {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        .datetime-box label {
+            font-size: 12px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        .datetime-box input {
+            padding: 6px 10px;
+            border: 2px solid #ff758c;
+            border-radius: 8px;
+            font-size: 13px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-watermark">RAJAN ❤️ SMRITI</div>
+
+    <!-- Question 1 -->
+    <div class="container" id="screen-1">
+        <div class="heart">💖</div>
+        <h1>के तिमी मलाई माया गर्छौ?</h1>
+        <div class="btn-group">
+            <button class="primary-btn" onclick="nextQuestion(2)" style="position: absolute; left: 10px;">Yes ❤️</button>
+            <button class="escape-btn" id="escape-btn-1" onmouseover="moveButton('escape-btn-1')" onclick="moveButton('escape-btn-1')">No 😜</button>
+        </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="container hidden" id="screen-2">
+        <div class="heart">🍫</div>
+        <h1>तिमीले मलाई भेट्दा चकलेट ल्याइदिन्छौ नि, हैन?</h1>
+        <div class="btn-group">
+            <button class="primary-btn" onclick="nextQuestion(3)" style="position: absolute; left: 10px;">अवश्य ल्याइदिन्छु! 🥰</button>
+            <button class="primary-btn" onclick="nextQuestion(3)" style="position: absolute; right: 10px; background-color: #747d8c;">न्न ल्याउने 😜</button>
+        </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="container hidden" id="screen-3">
+        <div class="heart">🫂</div>
+        <h1>अब हामी भेट्दा मलाई अँगालो हाल्छौ र किस गर्छौ नि?</h1>
+        <div class="btn-group">
+            <button class="primary-btn" onclick="nextQuestion(4)" style="position: absolute; left: 10px;">पक्का हाल्छु! ❤️</button>
+            <button class="escape-btn" id="escape-btn-3" onmouseover="moveButton('escape-btn-3')" onclick="moveButton('escape-btn-3')">अहँ 🙈</button>
+        </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="container hidden" id="screen-4">
+        <div class="heart">🥺</div>
+        <h1>तिमी कहिल्यै मलाई छोडेर त जाँदिनौ नि?</h1>
+        <div class="btn-group">
+            <button class="primary-btn" onclick="nextQuestion(5)" style="position: absolute; left: 10px;">कहिलेइ जाँदिन! 🥰</button>
+            <button class="escape-btn" id="escape-btn-4" onmouseover="moveButton('escape-btn-4')" onclick="moveButton('escape-btn-4')">सोचूँला 😜</button>
+        </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="container hidden" id="screen-5">
+        <div class="heart">🌹</div>
+        <h1>के तिमी मसित रोमान्टिक डेटमा जान्छौ? मिति र समय छान्नुहोस्:</h1>
+        <div class="datetime-box">
+            <label>डेटको मिति र समय (Date & Time):</label>
+            <input type="datetime-local" id="date-picker">
+        </div>
+        <div class="btn-group">
+            <button class="primary-btn" onclick="nextQuestion(6)" style="position: absolute; left: 10px;">फिक्स भयो! ✨</button>
+            <button class="escape-btn" id="escape-btn-5" onmouseover="moveButton('escape-btn-5')" onclick="moveButton('escape-btn-5')">पर्दैन 😜</button>
+        </div>
+    </div>
+
+    <!-- Question 6 (के तिमी मलाई मिस गर्छौ? - दुवै बटन थिच्न मिल्ने) -->
+    <div class="container hidden" id="screen-6">
+        <div class="heart">📱</div>
+        <h1>के तिमी मलाई साँच्चै धेरै मिस गर्छौ?</h1>
+        <div class="btn-group">
+            <button class="primary-btn" onclick="nextQuestion(7)" style="position: absolute; left: 10px;">धेरै भन्दा धेरै! ❤️</button>
+            <button class="primary-btn" onclick="nextQuestion(7)" style="position: absolute; right: 10px; background-color: #747d8c;">अलिअलि 😜</button>
+        </div>
+    </div>
+
+    <!-- Final Success Screen (आफै बोल्ने हार्ट टचिंग लाइनसहित) -->
+    <div class="container hidden" id="screen-7">
+        <div class="heart">🎉</div>
+        <h1 style="color: #2ed573;">मलाई थाहा थियो तिमीले यस भन्छौ भनेर! 🥰</h1>
+        <p id="final-message">दूरी जति नै टाढा भए पनि, हाम्रो मुटुको ढुकढुकी सँगै छ। स्मृति, तिमी मेरो जीवनको सबैभन्दा सुन्दर सपना र सधैँभरिको खुसी हौ। Love you so much! ❤️✨</p>
+    </div>
+
+    <script>
+        function moveButton(btnId) {
+            const btn = document.getElementById(btnId);
+            const maxX = window.innerWidth - btn.offsetWidth - 20;
+            const maxY = window.innerHeight - btn.offsetHeight - 20;
+            
+            const randomX = Math.max(10, Math.random() * maxX);
+            const randomY = Math.max(10, Math.random() * maxY);
+            
+            btn.style.position = 'fixed';
+            btn.style.left = `${randomX}px`;
+            btn.style.top = `${randomY}px`;
+        }
+
+        document.querySelectorAll('.escape-btn').forEach(btn => {
+            btn.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                moveButton(btn.id);
+            });
+        });
+
+        function nextQuestion(screenNumber) {
+            document.querySelectorAll('.container').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`screen-${screenNumber}`).classList.remove('hidden');
+
+            // यदि अन्तिम स्क्रिनमा पुग्यो भने, मोबाइलले आफै त्यो लाइन पढेर सुनाउनेछ (Text-to-Speech)
+            if (screenNumber === 7) {
+                speakFinalMessage();
+            }
+        }
+
+        function speakFinalMessage() {
+            if ('speechSynthesis' in window) {
+                const text = "दूरी जति नै टाढा भए पनि, हाम्रो मुटुको ढुकढुकी सँगै छ। स्मृति, तिमी मेरो जीवनको सबैभन्दा सुन्दर सपना र सधैँभरिको खुसी हौ। I love you so much!";
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'hi-IN'; // नेपाली भ्वाइस सपोर्ट नभएमा हिन्दी वा अंग्रेजीमा प्रस्ट सुनिन सक्छ
+                utterance.rate = 0.9; // बोल्ने गति अलि ढिलो र रोमान्टिक बनाउन
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+    </script>
+
+</body>
+</html>
